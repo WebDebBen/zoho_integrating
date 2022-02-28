@@ -129,13 +129,8 @@ var data = [
 var g_channel, g_channel_result;
 
 $(document).ready(function(){
-    var parent = $("#dot-container");
     $(".dot-block").remove();
-    for (var i = 0; i < data.length; i++ ){
-        var item = data[i];
-        //addDotBlock(item["state"], item["title"], item["dot_date"], item["dot_state_type"], item["details"]);
-    }
-
+    modal_hide();
     $('.pie_progress').asPieProgress({
         namespace: 'pie_progress',
         barsize: '8',
@@ -146,6 +141,18 @@ $(document).ready(function(){
         e.preventDefault();
         displayChannels(g_channel, g_channel_result );
     });
+
+    $("#btn-profile").on("click", function(){
+        modal_show();
+    });
+    $("#overlay-wrap").on("click", function(e){
+        e.preventDefault();
+        modal_hide();
+    });
+    $(".modal-close").on("click", function(e){
+        e.preventDefault();
+        modal_hide();
+    })
 });
 
 function getChannelResultItems(channel, channel_result, dots ){
@@ -175,6 +182,25 @@ function getSelectedDots(){
     return dots;
 }
 
+function getStatus(last_updated, status, expiration_date ){
+    status = status.toLowerCase();
+    var now_date = new Date();
+    var exp_date = new Date(expiration_date);
+    var sub_day = (exp_date - now_date) / 1000 / 3600 / 24;
+    if (status == "activated"){
+        if (sub_day > 0 && sub_day < 7){
+            return {label: "Expiring " + expiration_date, class: "expiring", dot_state_type: "close"};
+        }else if(sub_day < 0){
+            return {label: "Data Lapse " + expiration_date, class: "lapse", dot_state_type: "close"};
+        }else{
+            return {label: "Last Update " + last_updated, class: "actived", dot_state_type: "check"};
+        }
+    }else if (status == "onboarding in progress"){
+        return {label: "Connection in Progress, Start date " + expiration_date, class:"progressing", dot_state_type: "arrow-rotate-right"};
+    }
+    return {label: "Inactive", class: "not-actived", dot_state_type: "check"};
+}
+
 function displayChannels(channels, channel_result){
     g_channel = channels;
     g_channel_result = channel_result;
@@ -183,38 +209,18 @@ function displayChannels(channels, channel_result){
     var dots = getSelectedDots();
     var total_count = 0;
     for (var i = 0; i < channels.length; i++ ){
+        total_count++;
         var channel = channels[i];
         var result = getChannelResultItems(channel, channel_result, dots );
-        if (result.length == 0 ) continue;
+        var status = {label: "Inactive", class: "not-actived", dot_state_type: "check"};
         var result_item = result[0];
-        var state = result_item.Status;
-        var dot_state_type = "check";
-        var dot_date = "";
-        total_count++;
-        switch(state.toLowerCase()){
-            case "onboarding in progress":
-                state = "progressing";
-                dot_state_type = "arrow-rotate-right";
-                dot_date = state + ". Start date: " + result_item.Last_Updated;
-                break;
-            case "activated":
-                state = "actived";
-                dot_state_type = "check";
-                dot_date = "Last update: " + result_item.Last_Updated;
-                active_channel++;
-                break;
-            case "Inactive":
-                state = "not-actived"
-                break;
-            default:
-                state = "expiring"
-                dot_state_type = "close";
-                break;
+        var title = channel.Reptile_Index_Theory_Attack_Vector.display_value + " " + channel.Ally_Name;
+        if (result.length > 0 ){
+            status = getStatus(result_item.Last_Updated, result_item.Status, result_item.Expiration_date );
         }
-        var title = result_item.Ally_Name + " " + result_item.Attack_Vector.display_value;
-        
+        if (status.class == "actived") active_channel++;
         var details = [];
-        addDotBlock(state, title, dot_date, dot_state_type, details );
+        addDotBlock(status.class, title, status.label, status.dot_state_type, details );
     }
 
     var p = parseInt(active_channel / total_count * 100);
@@ -274,12 +280,14 @@ function addDropDown(dotInfo ){
         var name = item["Name"];
         var id = item["ID"];
         var li = $("<li>").appendTo(parent );
-        var check = $("<input>").attr("type", "checkbox").addClass("dot check")
+        var check = $("<input>").attr("type", "radio").addClass("dot check")
+                .attr("name", "dot-filter")
+                .attr("id", id )
                 .attr("data-val", id ).appendTo(li );
         if (i == 0 ){
             $(check).attr("checked", true );
         }
-        $("<span>").html(name ).appendTo(li);
+        $("<label>").attr("for", id).html(name ).appendTo(li);
         
     }
 }
@@ -291,5 +299,17 @@ function displayUserProfile(data ){
         $(".profile-title").html(data.User_Type);
         $(".profile-content").html(data.Champion_Introduction);
         $(".account-avatar-img").attr("src", "https://creatorapp.zoho.com/" + data.Profile_Photo);
+        $("#contact-email").attr("href", "mailto:" + data.Email);
+        $("#contact-phone").html(data.Phone_Number);
     }
+}
+
+function modal_show(){
+    $("#overlay-wrap").show();
+    $("#account-modal").show();
+}
+
+function modal_hide(){
+    $("#overlay-wrap").hide();
+    $("#account-modal").hide();    
 }

@@ -63,6 +63,7 @@ async function getUserInfo(companyID){
         if (response.data.length > 0) {
             user_info = response.data;
         }
+        console.log("user info", user_info );
         return user_info;    
     } catch (error) {
         $('body').waitMe("hide");
@@ -75,7 +76,7 @@ async function getChannelResult(dot_id = ""){
         appName: APP_NAME,
         reportName: "All_Data_Channels",
         page: 1,
-        pageSize: 10,
+        pageSize: 50,
     };
     if (dot_id != "" ){
         config["criteria"] = "(DOT == " + dot_id + ")";

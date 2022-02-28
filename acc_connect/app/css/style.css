@@ -279,6 +279,10 @@ body{
     padding-right: 1rem !important;
 }
 
+.px-2r{
+    padding: 0 2rem;
+}
+
 .expiring .dot-state-item,
 .expiring .dot-state-color{
     background: #FFC535;
@@ -434,7 +438,7 @@ body{
 }
 
 .dot-state-color {
-    width: 20px;
+    width: 50px;
     height: 5px;
     position: relative;
     display: block;
@@ -485,4 +489,88 @@ img.account-avatar-img {
     border: solid 1px#5878F5;
     color: #5878F5;
     font-weight: 500;
+}
+
+.btn-profile:hover{
+    color: white;
+    background-color: #5878f5;
+}
+
+.overlay-wrap{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0,0,0,0.2);
+    z-index: 9;
+}
+
+.modal-wrap{
+    position: fixed;
+    margin: 0 auto;
+    width: 40%;
+    margin-left: 30%;
+    background: white;
+    z-index: 10;
+    top: 10rem;
+    border-radius: 10px;
+}
+
+.modal-header{
+    background: #3E63F4;
+    color: white;
+    text-align: center;
+    padding: 1.2rem;
+}
+
+.modal-title{
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.modal-close{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.modal-content{
+    border: none;
+    padding: 0.5rem 2rem;
+}
+
+.modal-content{
+    border: none;
+    padding: 0.5rem 2rem;
+    flex-direction: row;
+    text-align: center;
+}
+
+.mb-0{
+    margin-bottom: 0 !important;
+}
+
+.btn-blue{
+    border: solid 1px #819BF5;
+    border-radius: 25px;
+    color: #819BF5 !important;
+}
+
+.btn-blue:hover{
+    color: white !important;
+    background-color: #819BF5;
+}
+
+.color-blue{
+    color: #819BF5 !important;
+}
+
+.mb-05{
+    margin-bottom: 0.5rem;
+}
+
+.mt-05{
+    margin-top: 0.5rem;
 }

@@ -30,7 +30,7 @@
       </div>
     </div>
 
-    <div class="container mt-3r">
+    <div class="px-2r mt-3r">
       <div class="row">
         <div class="col-md-7" id="dot-wrap">
           <h4>ACCOUNT CONNECTION STATUS</h4>
@@ -87,12 +87,37 @@
                   Your Bluewire champion will connect and maintaqin the status of all your company acounts.
                   Your Bluewire champion will connect and maintaqin the status of all your company acounts.
                 </div>
-                <button class="btn btn-profile">Contact Your Champion</button>
+                <button class="btn btn-profile" id="btn-profile">Contact Your Champion</button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="overlay-wrap" id="overlay-wrap"></div>
+    <div class="modal-wrap" id="account-modal">
+      <div class="modal-header">
+        <div class="modal-title">CONTACT YOUR CHAMPION</div>
+        <div class="modal-close"><i class="fa fa-close"></i></div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-content">
+          <div class="contact-block">
+            <img class="contact-img" src="img/email.png" height="46">
+            <p class="mt-1r contact-desc mb-05">Send us a message and read our answer when it's convenient for you.</p>
+            <p class="contact-desc small mb-05">24 hours a day, 7 days a week</p>
+            <a id="contact-email" class="btn btn-blue">Email</a>
+          </div>
+          <div class="contact-block">
+            <img class="contact-img" src="img/phone.png" height="46">
+            <p class="mt-1r contact-desc mb-05">Real-time conversations and immediate answers via text..</p>
+            <p class="contact-desc small mb-05">Monday Friday, 8:00 AM - 5:00 PM PST</p>
+            <p id="contact-phone" class="contact-phone color-blue mt-1r">000-000-0000</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>
