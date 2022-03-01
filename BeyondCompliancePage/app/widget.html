@@ -14,18 +14,6 @@
     <script src="js/index.js"></script>    
   </head>
   <body>
-    <div class="content-header">
-      <div class="dropdown">
-          <span class="dropdown-text">Filter</span>
-          <ul class="dropdown-inner">
-              <li class="drop">
-                <span class="dropdown-text">DOT</span>   
-                <ul class="dropdown-menu" id="dot_dropdown">       
-                </ul>
-              </li>
-          </ul>
-      </div>
-    </div>
 
     <div class="px-2r mt-3r">
       <div class="row">
@@ -40,16 +28,16 @@
                 <div class="comp_title2">Company wide medal count</div>
                 <div class="medal_content">
                   <div class="medal_img_item bronze">
-                    <img class="medal_img" src="assets/imgs/bronze_256.png">
-                    <div class="medal_count">2</div>
+                    <img class="medal_img" src="assets/imgs/comp_bronze.png">
+                    <div class="medal_count"></div>
                   </div>
                   <div class="medal_img_item silver">
-                    <img class="medal_img" src="assets/imgs/silver_256.png">
-                    <div class="medal_count">1 </div>
+                    <img class="medal_img" src="assets/imgs/comp_silver.png">
+                    <div class="medal_count"></div>
                   </div>
                   <div class="medal_img_item gold">
-                    <img class="medal_img"   src="assets/imgs/gold_256.png">
-                    <div class="medal_count">1</div>
+                    <img class="medal_img"   src="assets/imgs/comp_gold.png">
+                    <div class="medal_count"></div>
                   </div>
                 </div>
               </div>
@@ -66,79 +54,20 @@
                         <div class="legend_block">
                           <div class="data-col font-bold">TOTALS</div>
                           <div class="data-row">
-                            <div class="data-col company-col font-bold">Company</div>
+                            <div class="data-col company-col font-bold" id="dot-company-name"></div>
                           </div>
-                          <div class="data-row">
-                            <div class="data-col"><span class="dot-col">DOT 1</span></div>
-                          </div>
-                          <div class="data-row">
-                            <div class="data-col"><span class="dot-col">DOT 2</span></div>
-                          </div>
-                          <div class="data-row">
-                            <div class="data-col"><span class="dot-col">DOT 3</span></div>
-                          </div>
+                          <div class="dot-y-legend" id="dot-y-legend"></div>
                         </div>
                       </div>
                     </div>
                     <div class="rti-data" id="rti-data">
-                      <div class="header-row bg-gray">
-                        <div class="data-col font-bold attack-4184941000000251027">1</div>
-                        <div class="data-col font-bold attack-4184941000000235023">1</div>
-                        <div class="data-col font-bold attack-4184941000000259007">1</div>
-                        <div class="data-col font-bold attack-4184941000000251031">1</div>
+                      <div class="header-row bg-gray" id="attack_medal_count">
                       </div>
-
                       <div class="data-content-container">
-                        <div class="data-row company-row data-content 4184941000000282115">
-                          <div class="data-col">
-                            <img src="assets/imgs/bronze_256.png" class="graph-company bronze">
-                          </div>
-                          <div class="data-col">
-                            <img src="assets/imgs/silver_256.png" class="graph-company silver">
-                          </div>
-                          <div class="data-col">
-                            <img src="assets/imgs/bronze_256.png" class="graph-company bronze">
-                          </div>
-                          <div class="data-col">
-                            <img src="assets/imgs/gold_256.png" class="graph-company gold">
-                          </div>
-                        </div>
-                        <div class="data-row data-content 4184941000000282119">
-                          <div class="data-col attack-4184941000000251027"><span class="circle graph-circle has-silver" data-index-val="100.00"></span></div>
-                          <div class="data-col attack-4184941000000235023"><span class="circle graph-circle no-val"></span></div>
-                          <div class="data-col attack-4184941000000259007"><span class="circle graph-circle has-bronze" data-index-val="100.00"></span></div>
-                          <div class="data-col attack-4184941000000251031"><span class="circle graph-circle has-gold" data-index-val="0.00"></span></div>
-                        </div>
-                        <div class="data-row data-content 4184941000000322007">
-                          <div class="data-col attack-4184941000000251027"><span class="circle graph-circle no-val" data-index-val="47.00"></span></div>
-                          <div class="data-col attack-4184941000000235023"><span class="circle graph-circle has-silver" data-index-val="56.00"></span></div>
-                          <div class="data-col attack-4184941000000259007"><span class="circle graph-circle no-val"></span></div>
-                          <div class="data-col attack-4184941000000251031"><span class="circle graph-circle has-gold"></span></div>
-                        </div>
-                        <div class="data-row data-content 4184941000000282123">
-                          <div class="data-col attack-4184941000000251027"><span class="circle graph-circle has-bronze" data-index-val="0.00"></span></div>
-                          <div class="data-col attack-4184941000000235023"><span class="circle graph-circle has-gold"></span></div>
-                          <div class="data-col attack-4184941000000259007"><span class="circle graph-circle no-val"></span></div>
-                          <div class="data-col attack-4184941000000251031"><span class="circle graph-circle has-gold" data-index-val="19.00"></span></div>
-                        </div>
+                        <div class="data-row company-row data-content" id="attack_comp_medal"></div>
+                        <div id="attack-dot-container"></div>
                       </div>
                       <div class="data-row av-legend-container" id="av-legend-container">
-                        <div class="data-col img-col">
-                          <img src="assets/imgs/camera_256.png" class="legend-attack-img">
-                          <span class="av-legend">Cameras</span>
-                        </div>
-                        <div class="data-col img-col">
-                          <img src="assets/imgs/adas.png" class="legend-attack-img">
-                          <span class="av-legend">ADAS</span>
-                        </div>
-                        <div class="data-col img-col">
-                          <img src="assets/imgs/prehire_256.png" class="legend-attack-img">
-                          <span class="av-legend">Hiring Practices</span>
-                        </div>
-                        <div class="data-col img-col">
-                          <img src="assets/imgs/regul_256.png" class="legend-attack-img">
-                          <span class="av-legend">Driver Training</span>
-                        </div>
                       </div>
                     </div>
                   </div>
@@ -158,6 +87,22 @@
                 <div class="desc-item">
                   <div class="circle graph-circle has-gold"></div>
                   <span>Gold</span>
+                </div>
+                <div class="desc-rec-item">
+                  <div class="circle rec-circle rec-none"></div>
+                  <span>/</span>
+                </div>
+                <div class="desc-rec-item">
+                  <div class="circle rec-circle rec-bronze"></div>
+                  <span>/</span>
+                </div>
+                <div class="desc-rec-item">
+                  <div class="circle rec-circle rec-silver"></div>
+                  <span>/</span>
+                </div>
+                <div class="desc-rec-item">
+                  <div class="circle rec-circle rec-gold"></div>
+                  <span>Recommendation</span>
                 </div>
                 <div class="desc-title">Critical Factor/s not yet achieved</div>
               </div>

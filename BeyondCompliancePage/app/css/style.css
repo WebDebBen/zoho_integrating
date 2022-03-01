@@ -70,6 +70,7 @@ body{
     position: relative;
     z-index: 10;
     align-items: center;
+    min-height: 50px;
 }
 .bg-gray{
     background-color: #F6F6FA;
@@ -107,6 +108,7 @@ body{
 .circle.has-val::after{
     border-color: #2BD788;
 }
+
 .circle.rec-val{
     width: 20px;
     height: 20px;
@@ -124,6 +126,54 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+.rec-none{
+    background-color: #FF9140;
+}
+.rec-none::after{
+    border-color: #FF9140;
+}
+.rec-gold{
+    background-color: #A96410;
+}
+.rec-gold::after{
+    border-color: #A96410;
+}
+.rec-silver{
+    background-color: #383838;
+}
+.rec-silver::after{
+    border-color: #383838;
+}
+.rec-bronze{
+    background-color: #7B1805;
+}
+.rec-bronze::after{
+    border-color: #7B1805;
+}
+
+.desc-rec-item{
+    display: flex;
+    align-items: center;
+    padding: 2px 2px;
+}
+
+.circle.rec-circle{
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.circle.rec-circle::after{
+    content: '!';
+    color: #fff;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
 .circle::before{
     content: attr(data-index-val);
     visibility: hidden;
@@ -408,6 +458,7 @@ img.graph-company {
 
 .company-col{
     height: 80px;
+    width: 120px;
 }
 
 .graph-circle{
@@ -433,7 +484,7 @@ img.legend-attack-img {
 }
 
 .dot-col{
-    height: 30px;
+    height: 40px;
 }
 
 .graph_desc{
@@ -450,4 +501,12 @@ img.legend-attack-img {
 
 .desc-item span{
     margin-left: 5px;
+}
+
+.desc-title{
+    padding-left: 1rem;
+}
+
+.desc-rec-item span{
+    padding-left: 3px;
 }
