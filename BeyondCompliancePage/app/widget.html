@@ -2,8 +2,169 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="plugins/wait/waitMe.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
+    <script src="plugins/jquery.min.js"></script>    
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="plugins/wait/waitMe.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/index.js"></script>    
   </head>
   <body>
-    <h2>This is a sample Widget built using Zoho Extension toolkit.</h2>
+    <div class="content-header">
+      <div class="dropdown">
+          <span class="dropdown-text">Filter</span>
+          <ul class="dropdown-inner">
+              <li class="drop">
+                <span class="dropdown-text">DOT</span>   
+                <ul class="dropdown-menu" id="dot_dropdown">       
+                </ul>
+              </li>
+          </ul>
+      </div>
+    </div>
+
+    <div class="px-2r mt-3r">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="compliance_wrap">
+            <div class="compliance_header">
+              BEYOND COMPLIANCE
+            </div>
+            <div class="medal_wrap">
+              <div class="medal_block">
+                <div class="comp_title1">ABC TRUCKING</div>
+                <div class="comp_title2">Company wide medal count</div>
+                <div class="medal_content">
+                  <div class="medal_img_item bronze">
+                    <img class="medal_img" src="assets/imgs/bronze.png">
+                    <div class="medal_count">2</div>
+                  </div>
+                  <div class="medal_img_item silver">
+                    <img class="medal_img" src="assets/imgs/silver.png">
+                    <div class="medal_count">1 </div>
+                  </div>
+                  <div class="medal_img_item gold">
+                    <img class="medal_img"   src="assets/imgs/gold.png">
+                    <div class="medal_count">1</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="compliance_graph">
+                <div class="comp_title1">DRILLDOWN</div>
+                <div class="comp_title2">DOT and Program specific breakdown</div>
+
+                <div class="graph-container mt-2r">
+                  <div class="graph-inner">
+                    <div class="left-totoal-legend" id="left-total-legend">
+                      <div class="legend_wrap">
+                        <div class="legend_title">DOT</div>
+                        <div class="legend_block">
+                          <div class="data-col font-bold">TOTALS</div>
+                          <div class="data-row">
+                            <div class="data-col company-col font-bold">Company</div>
+                          </div>
+                          <div class="data-row">
+                            <div class="data-col"><span class="dot-col">DOT 1</span></div>
+                          </div>
+                          <div class="data-row">
+                            <div class="data-col"><span class="dot-col">DOT 2</span></div>
+                          </div>
+                          <div class="data-row">
+                            <div class="data-col"><span class="dot-col">DOT 3</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="rti-data" id="rti-data">
+                      <div class="header-row bg-gray">
+                        <div class="data-col font-bold attack-4184941000000251027">1</div>
+                        <div class="data-col font-bold attack-4184941000000235023">1</div>
+                        <div class="data-col font-bold attack-4184941000000259007">1</div>
+                        <div class="data-col font-bold attack-4184941000000251031">1</div>
+                      </div>
+
+                      <div class="data-content-container">
+                        <div class="data-row company-row data-content 4184941000000282115">
+                          <div class="data-col">
+                            <img src="assets/imgs/bronze.png" class="graph-company bronze">
+                          </div>
+                          <div class="data-col">
+                            <img src="assets/imgs/silver.png" class="graph-company silver">
+                          </div>
+                          <div class="data-col">
+                            <img src="assets/imgs/bronze.png" class="graph-company bronze">
+                          </div>
+                          <div class="data-col">
+                            <img src="assets/imgs/gold.png" class="graph-company gold">
+                          </div>
+                        </div>
+                        <div class="data-row data-content 4184941000000282119">
+                          <div class="data-col attack-4184941000000251027"><span class="circle graph-circle has-silver" data-index-val="100.00"></span></div>
+                          <div class="data-col attack-4184941000000235023"><span class="circle graph-circle no-val"></span></div>
+                          <div class="data-col attack-4184941000000259007"><span class="circle graph-circle has-bronze" data-index-val="100.00"></span></div>
+                          <div class="data-col attack-4184941000000251031"><span class="circle graph-circle has-gold" data-index-val="0.00"></span></div>
+                        </div>
+                        <div class="data-row data-content 4184941000000322007">
+                          <div class="data-col attack-4184941000000251027"><span class="circle graph-circle no-val" data-index-val="47.00"></span></div>
+                          <div class="data-col attack-4184941000000235023"><span class="circle graph-circle has-silver" data-index-val="56.00"></span></div>
+                          <div class="data-col attack-4184941000000259007"><span class="circle graph-circle no-val"></span></div>
+                          <div class="data-col attack-4184941000000251031"><span class="circle graph-circle has-gold"></span></div>
+                        </div>
+                        <div class="data-row data-content 4184941000000282123">
+                          <div class="data-col attack-4184941000000251027"><span class="circle graph-circle has-bronze" data-index-val="0.00"></span></div>
+                          <div class="data-col attack-4184941000000235023"><span class="circle graph-circle has-gold"></span></div>
+                          <div class="data-col attack-4184941000000259007"><span class="circle graph-circle no-val"></span></div>
+                          <div class="data-col attack-4184941000000251031"><span class="circle graph-circle has-gold" data-index-val="19.00"></span></div>
+                        </div>
+                      </div>
+                      <div class="data-row av-legend-container" id="av-legend-container">
+                        <div class="data-col img-col">
+                          <img src="assets/imgs/cameras.png" class="legend-attack-img">
+                          <span class="av-legend">Cameras</span>
+                        </div>
+                        <div class="data-col img-col">
+                          <img src="assets/imgs/adas.png" class="legend-attack-img">
+                          <span class="av-legend">ADAS</span>
+                        </div>
+                        <div class="data-col img-col">
+                          <img src="assets/imgs/hiring.png" class="legend-attack-img">
+                          <span class="av-legend">Hiring Practices</span>
+                        </div>
+                        <div class="data-col img-col">
+                          <img src="assets/imgs/diver.png" class="legend-attack-img">
+                          <span class="av-legend">Driver Training</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="comp_footer text-center font-bold">BEYOND COMPLIANCE PROGRAM</div>
+              </div>
+
+              <div class="graph_desc mt-1r">
+                <div class="desc-item">
+                  <div class="circle graph-circle has-bronze"></div>
+                  <span>Bronze</span>
+                </div>
+                <div class="desc-item">
+                  <div class="circle graph-circle has-silver"></div>
+                  <span>Silver</span>
+                </div>
+                <div class="desc-item">
+                  <div class="circle graph-circle has-gold"></div>
+                  <span>Gold</span>
+                </div>
+                <div class="desc-title">Critical Factor/s not yet achieved</div>
+              </div>
+              
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

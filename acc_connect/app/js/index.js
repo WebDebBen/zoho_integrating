@@ -117,7 +117,7 @@ async function getAllDots(companyID ){
     try {
         if (response.data.length > 0) {
             dotInfo = response.data;
-        }    
+        }
         return dotInfo;
     } catch (error) {
         $('body').waitMe("hide");
