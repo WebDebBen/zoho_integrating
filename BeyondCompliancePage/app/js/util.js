@@ -35,6 +35,7 @@ function displayDotYLegend(dot_info){
         var item = dot_info[i];
         var dot_name = item.Name;
         $("#dot-company-name").html(item.Company.display_value);
+        $("#company_title_name").html(item.Company.display_value);
         var row = $("<div>").addClass("data-row").appendTo(parent);
         $("<div>").addClass("data-col")
             .html("<span class='dot-col'>" + dot_name + "</span>").appendTo(row );
