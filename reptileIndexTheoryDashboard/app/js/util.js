@@ -1,37 +1,160 @@
 $(document).ready(function(){
     $("#chartslider_input").slider({
         formatter: function(value) {
-            return value;
+            return getDateFromPoint(value);
         }
     });
+
+    $("#chartslider_input").on("slide", function(e){
+        var score = getTotalValue(reptile_data, getDateFromPoint(e.value ));
+        scoreLabel.text = String(score );
+
+        var attacks = getAttackVector(attack_data );
+        chart.data = attacks;
+    });
+
+    $("#chartslider_input").on("change", function(e){
+        var score = getTotalValue(reptile_data, getDateFromPoint(e.value ));
+        scoreLabel.text = String(score );
+
+        var attacks = getAttackVector(attack_data );
+        chart.data = attacks;
+    });
+
+    $("#chart_start_date").html(getDateFromPoint(0));
+    $("#chart_end_date").html(getDateFromPoint(8));
 });
 
 function getDateFromPoint(point ){
     var now_date = new Date();
-    var d = now_date - point * 7 * 24 * 3600 * 1000;
-    return d.getDate() + "/" + (d.getMonth() + 1) + "/" + (d.getYear() + 1900);
+    var d = now_date - (8 - point) * 7 * 24 * 3600 * 1000;
+    d = new Date(d); 
+    return (d.getMonth() + 1) + "/" + d.getDate() + "/" + (d.getYear() + 1900);
+}
+
+function displayAttackValue(attack_value ){
+    var tbody = $("#attack_tbody");
+    $(tbody).empty();
+    var total = 0;
+    for (var i = 0; i < attack_value.length; i++ ){
+        var item = attack_value[i];
+        var tr = $("<tr>").appendTo(tbody );
+        var td = $("<td>").appendTo(tr );
+        var div = $("<div>").addClass("one").appendTo(td);
+        var sub_div = $("<div>").appendTo(div );
+        $("<img>")//.attr("src", "images/" + item.Attack_Vector.display_value + ".png")
+                .addClass("iconSize attack-img-" + item.Attack_Vector.ID ).appendTo(sub_div );
+        $("<div>").html(item.Attack_Vector.display_value ).appendTo(div );
+        $("<td>").html(item.Reptile_Theory_Index_0_100 ).appendTo(tr);
+        total += parseFloat(item.Reptile_Theory_Index_0_100);
+    }
+
+    var tr = $("<tr>").appendTo(tbody );
+    var td = $("<td>").appendTo(tr );
+    var div = $("<div>").addClass("one").appendTo(td);
+    var sub_div = $("<div>").appendTo(div );
+    //$("<img>").attr("src", "images/total_price.png")
+    //        .addClass("iconSize").appendTo(sub_div );
+    $("<div>").html("Total" ).appendTo(div );
+    $("<td>").html(total ).appendTo(tr);
+}
+
+function setAttackImage(attack_vectors ){
+    for (var i = 0; i < attack_vectors.length; i++ ){
+        var item = attack_vectors[i];
+        var img = item.Is_this_Attack_Vector_Active == 'true' ?
+            item.Active_Logo : item.Inactive_Logo;
+        img = "https://creatorapp.zoho.com/" + img;
+        $(".attack-img-" + item.ID).attr("src", img);
+    }
 }
 
 function drawGraphAndSlider(reptile_score, attack_score ){
     drawGraph(reptile_score, attack_score );
-    drawSlider(attack_score );
+}
+
+function getTotalValue(reptile_score, date ){
+    date = new Date(date);
+    for (var i = 0; i < reptile_score.length; i++){
+        var item = reptile_score[i];
+        var item_date = new Date(item.Creation_Date );
+        var sub = date - item_date;
+        if (sub == 0 ){
+            return item.Reptile_Theory_Index_0_100;
+        }
+    }
+    return 0;
+}
+
+function getAttackVector(attack_score ){
+    var date = getDateFromPoint($("#chartslider_input").val());
+    date = new Date(date);
+    var attacks = [];
+    for (var i = 0;i < attack_score.length; i++ ){
+        var item = attack_score[i];
+        var item_date = new Date(item.Creation_Date);
+        var sub = date - item_date;
+        if (sub == 0 ){
+            attacks.push({vector: item.Attack_Vector.display_value, bindex: item.Reptile_Theory_Index_0_100 });
+        }
+    }
+    return attacks;
+}
+
+var chart = "";
+var scoreLabel = "";
+var reptile_data = "";
+var attack_data = "";
+
+function setRepDifference(rep_data ){
+    var now_date = getDateFromPoint(8);
+    var sub_date = getDateFromPoint(7);
+    now_date = new Date(now_date );
+    sub_date = new Date(sub_date);
+
+    var now_score = 0;
+    var sub_score = 0;
+    for(var i = 0; i < rep_data.length; i++ ){
+        var item = rep_data[i];
+        var item_date = new Date(item.Creation_Date);
+        if (item_date - now_date == 0 ){
+            now_score = item.Reptile_Theory_Index_0_100;
+        }
+        if (item_date - sub_date == 0 ){
+            sub_score = item.Reptile_Theory_Index_0_100;
+        }
+    }
+
+    var sub = now_score - sub_score;
+    if (sub < 0){
+        $("#confidence").parent().find("i").removeClass("fa-caret-up").removeClass("color-green").addClass("fa-caret-down color-red");
+    }else{
+        $("#confidence").parent().find("i").removeClass("fa-caret-down").removeClass("color-red").addClass("fa-caret-down color-green");
+    }
+    $("#confidence").html(Math.abs(sub ));
 }
 
 function drawGraph(reptile_score, attack_score ){
-    var totalValue = 0;
-    
+    reptile_data = reptile_score;
+    attack_data = attack_score;
+
+    var totalValue = getTotalValue(reptile_score, getDateFromPoint($("#chartslider_input").val()) );
+    var attackVector = getAttackVector(attack_score );
+    setRepDifference(reptile_score);
+
     am4core.addLicense("CH250168772");
     am4core.ready(function() {
-        var chart = am4core.create("chartdiv", am4charts.RadarChart);
+        chart = am4core.create("chartdiv", am4charts.RadarChart);
         var currentScore = totalValue;
-        var scoreLabel = chart.radarContainer.createChild(am4core.Label);
+        scoreLabel = chart.radarContainer.createChild(am4core.Label);
         scoreLabel.horizontalCenter = "middle";
         scoreLabel.verticalCenter = "middle";
         scoreLabel.fill = am4core.color("#0077CC");
         scoreLabel.fontSize = 40;
         scoreLabel.text = String(currentScore);
 
-        //chart.data = attackVector;
+        chart.data = attackVector;
+
         // This chart is really a bar chart so we need to bend it around a radius to get a circle
         chart.innerRadius = am4core.percent(40); // was 40
         chart.fontSize = 18;  // Size of text labels
@@ -79,8 +202,4 @@ function drawGraph(reptile_score, attack_score ){
         chart.cursor.lineX.disabled = true;
         chart.cursor.lineY.disabled = true;
     });
-}
-
-function drawSlider(attack_score ){
-
 }

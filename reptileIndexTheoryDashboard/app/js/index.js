@@ -37,15 +37,33 @@ async function retrieveInfo(config ){
     let report_name = "Company_Total_Reptile_Index_Score_Log_Report";
     let criteria = "(Company == " + company_id + ")";
     let reptile_score = await getRecords(report_name,  criteria );
-    console.log("Company_Total_Reptile_Index_Score_Log_Report", reptile_score );
+    //console.log("Company_Total_Reptile_Index_Score_Log_Report", reptile_score );
 
 	report_name = "Company_Attack_vector_Score_Log_Report";
     criteria = false;//"(Company == " + company_id + ")";
     let attack_score = await getRecords(report_name,  criteria );
-    console.log("Company_Attack_vector_Score_Log_Report", attack_score );
+    //console.log("Company_Attack_vector_Score_Log_Report", attack_score );
 
 	drawGraphAndSlider(reptile_score, attack_score );
+
+	report_name = "Attack_vector_multi_DOT_Score_Report";
+	criteria = "(Company == " + company_id + ")";
+	let attack_value = await getRecords(report_name, criteria );
+	console.log("Attack_vector_multi_DOT_Score_Report", attack_value );
+	displayAttackValue(attack_value );
+
+	/*report_name = "Company_Total_Reptile_Index_Score_Report";
+    criteria = "(Company == " + company_id + ")";
+    total_value = await getRecords(report_name,  criteria );
+	setTotalValue(total_value );
+    console.log("Company_Total_Reptile_Index_Score_Report", total_value );*/
 	
+	report_name = "All_Attack_Vectors";
+    criteria = '(Select_Program == "Reptile Theory")';
+    let attack_vectors = await getRecords(report_name,  criteria );
+	setAttackImage(attack_vectors );
+    console.log("All_Attack_Vectors",                   attack_vectors)
+
     $('body').waitMe("hide");
 }
 

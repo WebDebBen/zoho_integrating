@@ -629,18 +629,17 @@ body {
   width: 100%;
       border-collapse: collapse;
   }
-  
-  .Attract_vector table tr:first-child {
-      border-bottom: 1px solid #b5b1b1;
-      /* border-width: 10px; */
-      font-weight: 900;
+
+  .Attract_vector thead tr{
+      border-bottom: solid 1px gray;
   }
-  
+
   .Attract_vector table th {
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-        text-align: left;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: left;
+    padding-bottom: 0.5rem;
   }
   
   .Attract_vector table tr td {
@@ -655,8 +654,8 @@ body {
       font-weight: 700;
   }
   
-  .Attract_vector table tr:last-child {
-      background: lightblue;
+  .Attract_vector table tbody tr:last-child {
+      background: #A4EDFC;
   }
   
   .engine_details .view_details {
@@ -688,4 +687,20 @@ body {
 
 .slider.slider-horizontal {
     width: 100%;
+}
+
+.chartslider_wrap{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.chartslider{
+    display: block;
+    width: 100%;
+    padding: 0 40px;
+}
+
+.color-red{
+    color: red !important;
 }

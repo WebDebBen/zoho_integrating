@@ -22,52 +22,35 @@
     <div class="wrap_left_side">
         <div>
             <h2> reptile theory index </h2>
-            <div id="chartdiv"></div>
-            <div class="chartslider" id="chartslider">
-              <input type="text" id="chartslider_input"/>
-            </div>
-            <div class="chartpoints text-center mt-2r" id="chartpoints">
-              <div class="mt-1r font-bold"><i class="fa fa-caret-up color-green"></i> 8 points since last week</div>
-              <div>+/-5% confidence factor</div>
-            </div>
-            <div class="Attract_vector">
-                
-                <table style="width:100%">
-                <tr>
-                    <th>By Attack vector</th>
-                    <th>Index</th>
-                </tr>
-                <tr>
-                    <td><div class="one"><div><img id="driverOnboardingImgSrc" class="iconSize" src="images/Driver_Onboarding_Inactive.png" /></div><div> Driver Onboardings </div></div></td>
-                    <td id="driverOnboardingValue">N/A</td>
-                </tr>
-                <tr>
-                    <td><div class="one"><div><img id="safetyImgSrc" class="iconSize" src="images/Safety_Inactive.png" /></div><div> Safety </div></div></td>
-                    <td id="SafetyValue">N/A</td>
-                </tr>
-                <tr>
-                    <td><div class="one"><div><img id="dqFilesImgSrc" class="iconSize" src="images/DQ_Inactive.png" /></div><div> DQ Files </div></div></td>
-                    <td id="dqFilesValue">N/A</td>
-                </tr> 
-                 <tr>
-                    <td><div class="one"><div><img id="csaImgSrc" class="iconSize" src="images/CSA_Inactive.png" /></div><div> CSA </div></div></td>
-                    <td id="csaValue">N/A</td>
-                </tr> 
-                 <tr>
-                    <td><div class="one"><div><img id="hosImgSrc" class="iconSize" src="images/HOS_Inactive.png" /></div><div> HOS </div></div></td>
-                    <td id="hosValue">N/A</td>
-                </tr>
-                <tr>
-                    <td> Total</td>
-                    <td id="totalValue">N/A</td>
-                </tr>
-                </table>
-                <div class="view_details">
-                    <a href="">View Detail </a>
+            <div class="main-body px-2r">
+                <div id="chartdiv"></div>
+                <div class="chartslider_wrap">
+                    <div class="chart_start_date" id="chart_start_date">2022/1/8</div>
+                    <div class="chartslider" id="chartslider">
+                        <input type="text" id="chartslider_input" data-slider-min="0" data-slider-max="8" data-slider-step="1" data-slider-value="8"/>
+                    </div>
+                    <div class="chart_end_date" id="chart_end_date">2022/3/5</div>
+                </div>
+                <div class="chartpoints text-center mt-2r" id="chartpoints">
+                <div class="mt-1r font-bold"><i class="fa fa-caret-up color-red"></i> <span id="confidence"></span> points since last week</div>
+                <div>+/- 5% confidence factor</div>
+                </div>
+                <div class="Attract_vector">
+                    <table style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>By Attack vector</th>
+                                <th>Index</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attack_tbody">
+                        </tbody>
+                    </table>
+                    <div class="view_details">
+                        <a href="">View Detail </a>
+                    </div>
                 </div>
             </div>
-
-
         </div>
     </div>
  
