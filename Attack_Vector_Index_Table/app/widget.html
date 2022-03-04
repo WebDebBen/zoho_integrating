@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head> <title> reptile theory index </title> 
+
+<script type="text/javascript" src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
+<script src="//cdn.amcharts.com/lib/4/core.js"></script>
+<script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</head>
+<style>
+
+
+#chartdiv {
+  width: 100%;
+  height: 500px;
+}
+
+body { padding: 0; margin: 0; }
+
+.primary_div h2 {
+    background: #f2f2f2;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 14px;
+    margin-top: 0;
+    border: 1px solid #f2f2f2;
+    margin-right: 0px;
+}
+
+.wrap_left_side {
+    /*border: 1px solid #f2f2f2;*/
+    border-radius: 10px;
+   
+    flex: 1 1 auto;
+}
+
+.pie_chart {
+    height: 370px;
+}
+
+.Attract_vector {
+    padding: 25px;
+}
+.Attract_vector table {
+width: 100%;
+    border-collapse: collapse;
+}
+
+.Attract_vector table tr:first-child {
+    border-bottom: 1px solid #b5b1b1;
+    /* border-width: 10px; */
+    font-weight: 900;
+}
+
+.Attract_vector table th {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+      text-align: left;
+}
+
+.Attract_vector table tr td {
+    padding: 10px;
+    text-align: left;
+    /* margin: 10px 0; */
+    padding-left: 10px;
+    border-bottom: 1px solid #d9d5d5;
+}
+
+.Attract_vector table tr:last-child td {
+    font-weight: 700;
+}
+
+.Attract_vector table tr:last-child {
+    background: lightblue;
+}
+
+.engine_details .view_details {
+    margin-top: 50px;
+}
+
+.view_details {
+    margin-top: 30px;
+}
+.view_details a {
+    border: 1px solid #3590e1;
+    border-radius: 50px;
+    padding: 10px 25px;
+    font-weight: 500;
+}
+
+.one {
+    display: flex;
+    align-items: center;
+}
+.iconSize {
+  height: 30px;
+  margin-right: 5px;
+}
+
+
+</style>
+<body >
+
+<div class="primary_div" >
+    <div class="wrap_left_side">
+        <div>
+            <h2> reptile theory index </h2>
+           <div id="chartdiv"></div>
+            <div class="Attract_vector">
+                
+                <table style="width:100%">
+                <tr>
+                    <th>By Attack vector</th>
+                    <th>Index</th>
+                </tr>
+                <tr>
+                    <td><div class="one"><div><img id="driverOnboardingImgSrc" class="iconSize" src="images/Driver_Onboarding_Inactive.png" /></div><div> Driver Onboardings </div></div></td>
+                    <td id="driverOnboardingValue">N/A</td>
+                </tr>
+                <tr>
+                    <td><div class="one"><div><img id="safetyImgSrc" class="iconSize" src="images/Safety_Inactive.png" /></div><div> Safety </div></div></td>
+                    <td id="SafetyValue">N/A</td>
+                </tr>
+                <tr>
+                    <td><div class="one"><div><img id="dqFilesImgSrc" class="iconSize" src="images/DQ_Inactive.png" /></div><div> DQ Files </div></div></td>
+                    <td id="dqFilesValue">N/A</td>
+                </tr> 
+                 <tr>
+                    <td><div class="one"><div><img id="csaImgSrc" class="iconSize" src="images/CSA_Inactive.png" /></div><div> CSA </div></div></td>
+                    <td id="csaValue">N/A</td>
+                </tr> 
+                 <tr>
+                    <td><div class="one"><div><img id="hosImgSrc" class="iconSize" src="images/HOS_Inactive.png" /></div><div> HOS </div></div></td>
+                    <td id="hosValue">N/A</td>
+                </tr>
+                <tr>
+                    <td> Total</td>
+                    <td id="totalValue">N/A</td>
+                </tr>
+                </table>
+                <div class="view_details">
+                    <a href="">View Detail </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+ 
+    
+  
+
+</div>
+
+
+</body>
+</html>

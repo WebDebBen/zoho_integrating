@@ -33,20 +33,20 @@ async function retrieveInfo(config ){
         return;
     }
 
-    let dot_info = await getAllDots(company_id);
-    addDropDown(dot_info);
-    console.log("dot info", dot_info );
-
-    let channels = await getAllDataChannel();    
-    let channel_result = await getChannelResult();
-    console.log("channels", channels, channel_result );
-    displayChannels(channels, channel_result );
-
-
     let user_info = await getUserInfo(company_id);
-    displayUserProfile(user_info);
+    displayUserInfo(user_info);
+    console.log("user info", user_info)
 
     $('body').waitMe("hide");
+}
+
+async function getCompanyId(config ){
+    let response = await ZOHO.CREATOR.API.getAllRecords(config);
+    let companyID = "";
+    if (response.data.length > 0 ){ 
+      companyID = response.data[0]["Company"]["ID"];
+    }
+    return companyID;
 }
 
 async function getUserInfo(companyID){
@@ -63,82 +63,7 @@ async function getUserInfo(companyID){
         if (response.data.length > 0) {
             user_info = response.data;
         }
-        console.log("user info", user_info );
         return user_info;    
-    } catch (error) {
-        $('body').waitMe("hide");
-    }
-    return [];
-}
-
-async function getChannelResult(dot_id = ""){
-    let config = {
-        appName: APP_NAME,
-        reportName: "All_Data_Channels",
-        page: 1,
-        pageSize: 50,
-    };
-    if (dot_id != "" ){
-        config["criteria"] = "(DOT == " + dot_id + ")";
-    }
-    let response = await ZOHO.CREATOR.API.getAllRecords(config);
-    let channel_result = [];
-    try {
-        if (response.data.length > 0) {
-            channel_result = response.data;
-        }
-        return channel_result;    
-    } catch (error) {
-        $('body').waitMe("hide");
-    }
-    return [];
-}
-
-async function getCompanyId(config ){
-    let response = await ZOHO.CREATOR.API.getAllRecords(config);
-    let companyID = "";
-    if (response.data.length > 0 ){ 
-      companyID = response.data[0]["Company"]["ID"];
-    }
-    return companyID;
-}
-
-async function getAllDots(companyID ){
-    const dotsConfig = {
-      appName: APP_NAME,
-      reportName: "DOTs",
-      page: 1,
-      pageSize: 10,
-      criteria: "(Company == " + companyID + ")",
-    };
-  
-    let response = await ZOHO.CREATOR.API.getAllRecords(dotsConfig);
-    let dotInfo = {};
-    try {
-        if (response.data.length > 0) {
-            dotInfo = response.data;
-        }
-        return dotInfo;
-    } catch (error) {
-        $('body').waitMe("hide");
-    }
-    return [];    
-}
-
-async function getAllDataChannel(){
-    const config = {
-        appName: APP_NAME,
-        reportName: "Bluewire_Data_channels_Report",
-        page: 1,
-        pageSize: 50,
-    };
-    let response = await ZOHO.CREATOR.API.getAllRecords(config);
-    let dotInfo = {};
-    try {
-        if (response.data.length > 0) {
-            dotInfo = response.data;
-        }
-        return dotInfo;    
     } catch (error) {
         $('body').waitMe("hide");
     }

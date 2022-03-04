@@ -44,36 +44,39 @@ async function retrieveInfo(config ){
     let criteria = "(Company == " + company_id + ")";
     let company_medal_info = await getRecords(report_name,  criteria );
     displayCompanyMedal(company_medal_info );
-    console.log("Total_Medal_of_Company_Report",            company_medal_info)
+    //console.log("Total_Medal_of_Company_Report",            company_medal_info)
 
+    // report_name = "Beyond_Compliance_Invested_Money_Report";
+    // let tmp_info = await getRecords(report_name);
+    // console.log("Beyond_Compliance_Invested_Money_Report", tmp_info );
 
     // all attack vector info
     report_name = "All_Attack_Vectors";
     criteria = '(Select_Program == "Beyond Compliance")';
     let attack_vectors = await getRecords(report_name,  criteria );
     displayAttackVectorInfo(attack_vectors );
-    console.log("All_Attack_Vectors",                   attack_vectors)
+    //console.log("All_Attack_Vectors",                   attack_vectors)
 
     // special company medal for each attack vector
     report_name = "Attack_Vector_Specific_Total_Medal_of_Compa_Report";
     criteria = "(Company == " + company_id + ")";
     let attack_special_medal_info = await getRecords(report_name,       criteria);
     setAttackVectorModal(attack_special_medal_info);
-    console.log("Attack_Vector_Specific_Total_Medal_of_Compa_Report",   attack_special_medal_info );
+    //console.log("Attack_Vector_Specific_Total_Medal_of_Compa_Report",   attack_special_medal_info );
 
     // attack vector dot medal
     report_name = 'Beyond_Compliance_Allies_Total_Report';
     criteria = false;
     let attack_dot_medal = await getRecords(report_name, criteria );
     displayAttackVectorValue(dot_info, attack_vectors, attack_dot_medal);
-    console.log("Beyond_Compliance_Allies_Total_Report", attack_dot_medal );
+    //console.log("Beyond_Compliance_Allies_Total_Report", attack_dot_medal );
 
     // recommend info
     report_name = "All_Recommendation_Engines";
     criteria = '(Attack_Vector_Type == "Beyond Compliance")';
     let recommend_info = await getRecords(report_name,  criteria );
     displayRecommend(recommend_info, user_email );
-    console.log("All_Recommendation_Engines",           recommend_info );
+    //console.log("All_Recommendation_Engines",           recommend_info );
 
     $('body').waitMe("hide");
 }
@@ -119,7 +122,7 @@ async function getRecords(reportName, criteria = false ){
     if (criteria ){
         config["criteria"] = criteria;
     }
-    console.log(config);
+    //console.log(config);
     let response = await ZOHO.CREATOR.API.getAllRecords(config);
     let dotInfo = {};
     try {

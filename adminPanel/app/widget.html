@@ -2,8 +2,71 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="plugins/wait/waitMe.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
+    <script src="plugins/jquery.min.js"></script>    
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="plugins/wait/waitMe.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/index.js"></script>
   </head>
   <body>
-    <h2>This is a sample Widget built using Zoho Extension toolkit.</h2>
+    <div class="px-2r mt-3r">
+      <div class="row">
+        <div class="col-md-10">
+          <div class="user_item">
+            <div class="user_photo">
+              <img src="" id="user_photo_img" class="user_photo_img">
+              <div class="upload_photo_btn">ADD PHOTO</div>
+            </div>
+            <div class="user_data">
+              <div class="font-bold user_fullname">Firstname Last</div>
+              <div class="small user_email"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 text-right">
+          <a class="btn btn-blue" id="profile_edit_btn">
+            Edit
+          </a>
+        </div>
+      </div>
+      <div class="row mt-2r">
+        <div class="col-md-4">
+          <div class="small">Full Name</div>
+          <div class="user_fullname"></div>
+        </div>
+        <div class="col-md-5">
+          <div class="small">Nick Name</div>
+          <div class="user_nickname"></div>
+        </div>
+      </div>
+
+      <div class="row mt-1r">
+        <div class="col-md-4">
+          <div class="small">Email Address</div>
+          <div class="user_email"></div>
+        </div>
+        <div class="col-md-5">
+          <div class="small">Country/Region</div>
+          <div class="user_country_region"></div>
+        </div>
+      </div>
+
+      <div class="row mt-1r">
+        <div class="col-md-4">
+          <div class="small">Language</div>
+          <div class="user_lang"></div>
+        </div>
+        <div class="col-md-5">
+          <div class="small">Time Zone</div>
+          <div class="user_timezone"></div>
+        </div>
+      </div>
+
+    </div>
   </body>
 </html>
