@@ -1,9 +1,81 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-  </head>
-  <body>
-    <h2>This is a sample Widget built using Zoho Extension toolkit.</h2>
-  </body>
+<head> <title> reptile theory index </title> 
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="plugins/wait/waitMe.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
+  <script src="plugins/jquery.min.js"></script>
+  <script src="plugins/bootstrap/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="plugins/wait/waitMe.js"></script>
+  <script src="//cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body >
+
+<div class="primary_div" >
+    <div class="wrap_left_side">
+        <div>
+            <h2> reptile theory index </h2>
+            <div id="chartdiv"></div>
+            <div class="chartslider" id="chartslider">
+              <input type="text" id="chartslider_input"/>
+            </div>
+            <div class="chartpoints text-center mt-2r" id="chartpoints">
+              <div class="mt-1r font-bold"><i class="fa fa-caret-up color-green"></i> 8 points since last week</div>
+              <div>+/-5% confidence factor</div>
+            </div>
+            <div class="Attract_vector">
+                
+                <table style="width:100%">
+                <tr>
+                    <th>By Attack vector</th>
+                    <th>Index</th>
+                </tr>
+                <tr>
+                    <td><div class="one"><div><img id="driverOnboardingImgSrc" class="iconSize" src="images/Driver_Onboarding_Inactive.png" /></div><div> Driver Onboardings </div></div></td>
+                    <td id="driverOnboardingValue">N/A</td>
+                </tr>
+                <tr>
+                    <td><div class="one"><div><img id="safetyImgSrc" class="iconSize" src="images/Safety_Inactive.png" /></div><div> Safety </div></div></td>
+                    <td id="SafetyValue">N/A</td>
+                </tr>
+                <tr>
+                    <td><div class="one"><div><img id="dqFilesImgSrc" class="iconSize" src="images/DQ_Inactive.png" /></div><div> DQ Files </div></div></td>
+                    <td id="dqFilesValue">N/A</td>
+                </tr> 
+                 <tr>
+                    <td><div class="one"><div><img id="csaImgSrc" class="iconSize" src="images/CSA_Inactive.png" /></div><div> CSA </div></div></td>
+                    <td id="csaValue">N/A</td>
+                </tr> 
+                 <tr>
+                    <td><div class="one"><div><img id="hosImgSrc" class="iconSize" src="images/HOS_Inactive.png" /></div><div> HOS </div></div></td>
+                    <td id="hosValue">N/A</td>
+                </tr>
+                <tr>
+                    <td> Total</td>
+                    <td id="totalValue">N/A</td>
+                </tr>
+                </table>
+                <div class="view_details">
+                    <a href="">View Detail </a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+ 
+    
+  
+
+</div>
+
+
+</body>
 </html>
