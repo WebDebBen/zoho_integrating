@@ -212,9 +212,61 @@
     transform-origin: center left;
     position: absolute;
     left: 50px;
+    top: 32px;
+    font-weight: bold;
 }
 
+.av-legend-container img{
+    width: 25px;
+}
 
+.not_monitored .circle {
+    background: #d4d3d3;
+    width: 15px;
+    height: 15px;
+}
+
+.not_applicable .circle {
+    border: solid 1px #d4d3d3;
+    width: 15px;
+    height: 15px;
+}
+
+.graph-desc{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -90px;
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+}
+
+.graph-desc .left-legend{
+    width: calc(20% + 100px);
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    align-items: flex-end;
+    text-align: right;
+}
+
+.circle-container{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.circle-container > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+.circle-container > div >span{
+    margin: 0 1.2rem 0 0.5rem;
+}
 @keyframes slideDown {
     0%{
        

@@ -46,14 +46,14 @@ async function retrieveInfo(config ){
     criteria = '(Select_Program == "Beyond Compliance")';
     let attack_vectors = await getRecords(report_name,  criteria );
     displayAttackVectorInfo(attack_vectors );
-    //console.log("All_Attack_Vectors",                   attack_vectors)
+    console.log("All_Attack_Vectors",                   attack_vectors)
 
     // special company medal for each attack vector
     report_name = "Attack_Vector_Specific_Total_Medal_of_Compa_Report";
     criteria = "(Company == " + company_id + ")";
     let attack_special_medal_info = await getRecords(report_name,       criteria);
     setAttackVectorModal(attack_special_medal_info);
-    //console.log("Attack_Vector_Specific_Total_Medal_of_Compa_Report",   attack_special_medal_info );
+    console.log("Attack_Vector_Specific_Total_Medal_of_Compa_Report",   attack_special_medal_info );
     
     report_name = "Beyond_Compliance_Invested_Money_Report";
     let attack_prices = await getRecords(report_name);

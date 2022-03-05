@@ -4,6 +4,10 @@ const DOT_REPORT_NAME = "DOTs";
 const ATTACT_REPORT_NAME = "Reptile_Attack_Vector_Result_Report";
 const COLOR_REPORT_NAME = "All_Recommendation_Engines";
 
+var g_email = "";
+var g_dot_id = "";
+var g_attack_id = "";
+
 ZOHO.CREATOR.init().then(function(data){
   $('body').waitMe({
     effect : 'bounce',
@@ -22,6 +26,7 @@ ZOHO.CREATOR.init().then(function(data){
       pageSize: 1,
       criteria: '(Email == "' + queryParams["loginUserEmail"] + '")',
     }
+    g_email = queryParams["loginUserEmail"];
   }
 
   retrieveInfo(config );
@@ -48,14 +53,45 @@ async function retrieveInfo(config ){
     }    
   }
 
+  report_name = "All_Attack_Vectors";
+  criteria = '(Select_Program == "Reptile Theory")';
+  let attack_vectors = await getRecords(report_name,  criteria );
+  console.log("All_Attack_Vectors",                   attack_vectors)
+
   let attack_info = await getAttackIndex(company_id);
   dot_info.sort(function(a,b){return b.Index - a.Index});
   attack_info.sort(function(a,b){return b.Reptile_Theory_Index_0_100 - a.Reptile_Theory_Index_0_100});
   //graph_data = await getAttackInfo(dot_info );
   color_data = await getColorInfo();
-  drawGraph(dot_info, attack_info, color_data );
+  drawGraph(dot_info, attack_info, color_data, attack_vectors );
   $('body').waitMe("hide");
 }
+
+
+async function getRecords(reportName, criteria = false ){
+  let config = {
+      appName: APP_NAME,
+      reportName: reportName,
+      page: 1,
+      pageSize: 10
+  };
+  if (criteria ){
+      config["criteria"] = criteria;
+  }
+
+  let response = await ZOHO.CREATOR.API.getAllRecords(config);
+  let dotInfo = {};
+  try {
+      if (response.data.length > 0) {
+          dotInfo = response.data;
+      }    
+      return dotInfo;
+  } catch (error) {
+      $('body').waitMe("hide");
+  }
+  return [];
+}
+
 
 async function getDotTotal(dot_id ){
   let config = {
