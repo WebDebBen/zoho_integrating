@@ -23,7 +23,18 @@ $(document).ready(function(){
 
     $("#chart_start_date").html(getDateFromPoint(0));
     $("#chart_end_date").html(getDateFromPoint(8));
+
+    var url = getDomain() + "/peter_bluewire/customer-portal/#Page:Reptile_Index_Theory?loginUserEmail=cchaleman@bluewire.ai";
+    $("#view_details").on("click", function(){
+        window.open(url, "_parent");
+    })
 });
+
+function getDomain(){
+    var loc = window.location.href;
+    var a = loc.split("?")[1].split("=")[1].replace("%3A%2F%2F", "://");
+    return a;
+}
 
 function getDateFromPoint(point ){
     var now_date = new Date();
@@ -32,31 +43,40 @@ function getDateFromPoint(point ){
     return (d.getMonth() + 1) + "/" + d.getDate() + "/" + (d.getYear() + 1900);
 }
 
-function displayAttackValue(attack_value ){
+function displayAttackValue(attack_value, attack_vector, total_value ){
     var tbody = $("#attack_tbody");
     $(tbody).empty();
-    var total = 0;
-    for (var i = 0; i < attack_value.length; i++ ){
-        var item = attack_value[i];
+    var total = total_value ? total_value[0].Reptile_Theory_Index_0_100 : 0;
+
+    for (var i = 0; i < attack_vector.length; i++ ){
+        var item = attack_vector[i];
         var tr = $("<tr>").appendTo(tbody );
         var td = $("<td>").appendTo(tr );
         var div = $("<div>").addClass("one").appendTo(td);
         var sub_div = $("<div>").appendTo(div );
-        $("<img>")//.attr("src", "images/" + item.Attack_Vector.display_value + ".png")
-                .addClass("iconSize attack-img-" + item.Attack_Vector.ID ).appendTo(sub_div );
-        $("<div>").html(item.Attack_Vector.display_value ).appendTo(div );
-        $("<td>").html(item.Reptile_Theory_Index_0_100 ).appendTo(tr);
-        total += parseFloat(item.Reptile_Theory_Index_0_100);
+        $("<img>").attr("src", item.Inactive_Logo_URL )
+                .attr("data-active", item.Active_Logo_URL )
+                .addClass("iconSize attack-img-" + item.ID ).appendTo(sub_div );
+        $("<div>").html(item.Vector_Name ).appendTo(div );
+        $("<td>").addClass("attack-index-" + item.ID).html("N/A").appendTo(tr);
     }
 
     var tr = $("<tr>").appendTo(tbody );
     var td = $("<td>").appendTo(tr );
     var div = $("<div>").addClass("one").appendTo(td);
     var sub_div = $("<div>").appendTo(div );
-    //$("<img>").attr("src", "images/total_price.png")
-    //        .addClass("iconSize").appendTo(sub_div );
     $("<div>").html("Total" ).appendTo(div );
     $("<td>").html(total ).appendTo(tr);
+
+    for (var i = 0; i < attack_value.length; i++ ){
+        var item = attack_value[i];
+        var img = $(".attack-img-" + item.Attack_Vector.ID );
+        var index_td = $(".attack-index-" + item.Attack_Vector.ID );
+        var active_img = $(img).attr("data-active");
+        var active_value = item.Reptile_Theory_Index_0_100;
+        $(img).attr("src", active_img );
+        $(index_td).html(active_value);
+    }
 }
 
 function setAttackImage(attack_vectors ){

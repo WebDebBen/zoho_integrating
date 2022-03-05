@@ -50,18 +50,16 @@ async function retrieveInfo(config ){
 	criteria = "(Company == " + company_id + ")";
 	let attack_value = await getRecords(report_name, criteria );
 	console.log("Attack_vector_multi_DOT_Score_Report", attack_value );
-	displayAttackValue(attack_value );
 
-	/*report_name = "Company_Total_Reptile_Index_Score_Report";
+	report_name = "Company_Total_Reptile_Index_Score_Report";
     criteria = "(Company == " + company_id + ")";
     total_value = await getRecords(report_name,  criteria );
-	setTotalValue(total_value );
-    console.log("Company_Total_Reptile_Index_Score_Report", total_value );*/
+    console.log("Company_Total_Reptile_Index_Score_Report", total_value );
 	
 	report_name = "All_Attack_Vectors";
     criteria = '(Select_Program == "Reptile Theory")';
     let attack_vectors = await getRecords(report_name,  criteria );
-	setAttackImage(attack_vectors );
+	displayAttackValue(attack_value, attack_vectors, total_value );
     console.log("All_Attack_Vectors",                   attack_vectors)
 
     $('body').waitMe("hide");
