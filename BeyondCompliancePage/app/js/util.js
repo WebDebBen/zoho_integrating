@@ -42,6 +42,12 @@ function displayDotYLegend(dot_info){
     }
 }
 
+function getDomain(){
+    var loc = window.location.href;
+    var a = loc.split("?")[1].split("=")[1].replace("%3A%2F%2F", "://");
+    return a;
+}
+
 function displayAttackVectorInfo(data ){
     if (data.length == 0 ) return;
     var parent = $("#attack_medal_count");
@@ -53,8 +59,9 @@ function displayAttackVectorInfo(data ){
         $("<div>").addClass("data-col font-bold attack-" + item.ID ).html("0").appendTo(parent );
 
         var div = $("<div>").addClass("data-col img-col attack-legend-" + item.ID ).appendTo(legend_parent);
-        $("<img>").attr("src", "https://creatorapp.zoho.com/" + item.Active_Logo)
-                    .addClass("legend-attack-img").appendTo(div );
+        $("<img>").attr("src", getDomain() + item.Inactive_Logo)
+                    .attr("data-active", getDomain() + item.Active_Logo)
+                    .addClass("legend-attack-img attack-img-" + item.ID).appendTo(div );
         $("<span>").addClass("av-legend").html(item.Vector_Name ).appendTo(div );
 
         // attack company vector
@@ -103,6 +110,8 @@ function displayAttackVectorValue(dot_info, attacks, attack_dot_value){
         var medal = item.Medal.toLowerCase();
         $(".dot-" + dot_id + " .dot-attack-" + attack_id)
             .html("<span class='circle graph-circle has-" + medal + "'></span>");
+        
+        $(".attack-img-" + attack_id).attr("src", $(".attack-img-" + attack_id).attr("data-active"));
     }
 }
 
