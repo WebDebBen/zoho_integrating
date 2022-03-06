@@ -508,13 +508,13 @@ img.account-avatar-img {
 
 .modal-wrap{
     position: fixed;
-    margin: 0 auto;
-    width: 40%;
-    margin-left: 30%;
+    width: 620px;
+    left: 50%;
     background: white;
     z-index: 10;
     top: 10rem;
     border-radius: 10px;
+    margin-left: -310px;
 }
 
 .modal-header{
@@ -581,13 +581,13 @@ img.account-avatar-img {
 
 .quick_link_top {
     font-weight: bold;
-    padding: 1rem 0 1rem 1.5rem;
+    padding: 1rem 0;
     border-bottom: solid 1px #efefef;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .quick_link_block {
-    padding: 0 0 2rem 1.5rem;
+    padding: 0 0 2rem 0;
     display: flex;
     align-items: flex-end;
 }
@@ -607,6 +607,7 @@ img.account-avatar-img {
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 175px;
 }
 
 .link_item:hover{
