@@ -1,6 +1,6 @@
 const APP_NAME = "customer-portal";
 const USER_REPORT_NAME = "All_Users";
-
+var user_email = "";
 ZOHO.CREATOR.init().then(function(data){
     
     let queryParams = ZOHO.CREATOR.UTIL.getQueryParams();

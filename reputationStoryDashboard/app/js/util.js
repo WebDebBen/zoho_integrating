@@ -1,7 +1,7 @@
 $(document).ready(function(e){
 
     $("#rep_story_detail").on("click", function(e){
-        var url = getDomain() + "/peter_bluewire/customer-portal/#Page:Reputation_Story?loginUserEmail=cchaleman@bluewire.ai";
+        var url = getDomain() + "/peter_bluewire/customer-portal/#Page:Reputation_Story?loginUserEmail=" + user_email;
         window.open(url, "_parent");
     });
 });

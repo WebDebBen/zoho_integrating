@@ -117,7 +117,7 @@ function displayAttackVectorValue(dot_info, attacks, attack_dot_value){
 
 function displayRecommend(data, email ){   
     for (var i = 0; i < data.length; i++){
-        var url = "https://creatorapp.zoho.com/peter_bluewire/customer-portal#Page:Recommendation_Engine_S?loginUserEmail=" + email;
+        var url = getDomain() + "/peter_bluewire/customer-portal#Page:Recommendation_Engine_S?loginUserEmail=" + email;
         var item = data[i];
         var complete = item.Complete;
         if (complete == "false"){
@@ -127,8 +127,16 @@ function displayRecommend(data, email ){
 
             url = url + "&selectedDOTid=" + dot_id;
             url = url + "&selectedAttackVectorID=" + attack_id;
-            $(".dot-" + dot_id + " .dot-attack-" + attack_id)
-                        .html("<a href='" + url + "'><span class='circle rec-circle rec-" + attack_medal + "'></span></a>");
+            //$(".dot-" + dot_id + " .dot-attack-" + attack_id)
+            //            .html("<a href='javascript:;' data-href='" + url + "'><span class='circle rec-circle rec-" + attack_medal + "'></span></a>");
+            $(".dot-" + dot_id + " .dot-attack-" + attack_id).html("");
+            $("<a>").attr("href", "javascript:;")
+                    .attr("data-href", url )
+                    .on("click", function(e){
+                        window.open($(this).attr("data-href"), "_parent");
+                    })
+                    .html("<span class='circle rec-circle rec-" + attack_medal + "'></span>")
+                    .appendTo($(".dot-" + dot_id + " .dot-attack-" + attack_id));
         }
     }
 }

@@ -24,7 +24,7 @@ $(document).ready(function(){
     $("#chart_start_date").html(getDateFromPoint(0));
     $("#chart_end_date").html(getDateFromPoint(8));
 
-    var url = getDomain() + "/peter_bluewire/customer-portal/#Page:Reptile_Index_Theory?loginUserEmail=cchaleman@bluewire.ai";
+    var url = getDomain() + "/peter_bluewire/customer-portal/#Page:Reptile_Index_Theory?loginUserEmail=" + user_email;
     $("#view_details").on("click", function(){
         window.open(url, "_parent");
     })
