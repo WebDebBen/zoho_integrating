@@ -42,7 +42,6 @@ async function retrieveInfo(config ){
     console.log("channels", channels, channel_result );
     displayChannels(channels, channel_result );
 
-
     let user_info = await getUserInfo(company_id);
     displayUserProfile(user_info);
 

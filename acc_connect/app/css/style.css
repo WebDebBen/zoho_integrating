@@ -574,3 +574,7 @@ img.account-avatar-img {
 .mt-05{
     margin-top: 0.5rem;
 }
+
+.half-width{
+    width: 50% !important;
+}

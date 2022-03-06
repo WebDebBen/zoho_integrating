@@ -152,7 +152,11 @@ $(document).ready(function(){
     $(".modal-close").on("click", function(e){
         e.preventDefault();
         modal_hide();
-    })
+    });
+    $("#meet-link").on("click", function(e){
+        e.preventDefault();
+        window.open($(this).attr("data-href"), "_blank");
+    });
 });
 
 function getChannelResultItems(channel, channel_result, dots ){
@@ -301,6 +305,8 @@ function displayUserProfile(data ){
         $(".account-avatar-img").attr("src", "https://creatorapp.zoho.com/" + data.Profile_Photo);
         $("#contact-email").attr("href", "mailto:" + data.Email);
         $("#contact-phone").html(data.Phone_Number);
+
+        $("#meet-link").attr("data-href", data.Meeting_Link );
     }
 }
 
