@@ -1,6 +1,6 @@
 const APP_NAME = "customer-portal";
 const USER_REPORT_NAME = "All_Users";
-
+var user_email = "";
 ZOHO.CREATOR.init().then(function(data){
     //alert(window.atob('dXB3b3JrIHdpbGwgc3VzcGVuZCBpZiB3ZSB1c2Ugc2t5cGUgaWQgaW4gdXB3b3JrIGNoYXRib3gsIHNvIEkgYW0gdXNpbmcgdGhpcyA6KSBpdCBpcyBlbmNvZGVkLiBteSBza3lwZSBpZCBpcyBsaXZlOi5jaWQuNjEyZTRlOGZhOGUzMWNhNyAgIGFuZCBteSB0ZWxlZ3JhbSBpZCBpcyBAd2lubmVyZGV2MDgxNiAuIHdlIGNhbiBkaXNjdXNzIGluIHRlbGVncmFtIGFuZCBza3lwZSBtb3JlIGRldGFpbA=='));
     

@@ -8,7 +8,7 @@ $(document).ready(function(){
 });
 
 function view_detail(){
-    window.open(getDomain() + "/peter_bluewire/customer-portal/#Page:Beyond_Compliance?loginUserEmail=cchaleman@bluewire.ai", "_parent");
+    window.open(getDomain() + "/peter_bluewire/customer-portal/#Page:Beyond_Compliance?loginUserEmail=" + user_email, "_parent");
 }
 
 function getDomain(){
