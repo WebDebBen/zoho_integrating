@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head> <title> reptile theory index </title> 
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/css/bootstrap-slider.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="plugins/wait/waitMe.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script type="text/javascript" src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
+  <script src="plugins/jquery.min.js"></script>
+  <script src="plugins/bootstrap/js/bootstrap.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/11.0.2/bootstrap-slider.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="plugins/wait/waitMe.js"></script>
+  <script src="//cdn.amcharts.com/lib/4/core.js"></script>
+  <script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/index.js"></script>
+</head>
+<body >
+
+<div class="primary_div" >
+    <div class="wrap_left_side">
+        <div>
+            <h2> reptile theory index </h2>
+            <div class="main-body px-2r">
+                <div id="chartdiv"></div>
+                <div class="chartslider_wrap">
+                    <div class="chart_start_date" id="chart_start_date">2022/1/8</div>
+                    <div class="chartslider" id="chartslider">
+                        <input type="text" id="chartslider_input" data-slider-min="0" data-slider-max="120" data-slider-step="1" data-slider-value="120"/>
+                    </div>
+                    <div class="chart_end_date" id="chart_end_date">2022/3/5</div>
+                </div>
+                <div class="chartpoints text-center mt-2r" id="chartpoints">
+                <div class="mt-1r font-bold"><i class="fa fa-caret-up color-red"></i> <span id="confidence"></span> points since last week</div>
+                <div>+/- 5% confidence factor</div>
+                </div>
+                <div class="Attract_vector">
+                    <table style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>By Attack vector</th>
+                                <th>Index</th>
+                            </tr>
+                        </thead>
+                        <tbody id="attack_tbody">
+                        </tbody>
+                    </table>
+                    <div class="view_details" id="view_details">
+                        <a href="javascript:;">View Detail </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    
+  
+
+</div>
+
+
+</body>
+</html>
