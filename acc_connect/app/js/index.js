@@ -35,11 +35,11 @@ async function retrieveInfo(config ){
 
     let dot_info = await getAllDots(company_id);
     addDropDown(dot_info);
-    console.log("dot info", dot_info );
+    console.log("dot info1", dot_info );
 
     let channels = await getAllDataChannel();    
     let channel_result = await getChannelResult();
-    console.log("channels", channels, channel_result );
+    console.log("channels1", channels, channel_result );
     displayChannels(channels, channel_result );
 
     let user_info = await getUserInfo(company_id);

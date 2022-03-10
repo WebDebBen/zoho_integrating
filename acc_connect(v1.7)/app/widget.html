@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="plugins/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="plugins/wait/waitMe.css">
+    <link rel="stylesheet" href="plugins/progress/css/asPieProgress.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://js.zohostatic.com/creator/widgets/version/1.0/widgetsdk-min.js"></script>
+    <script src="plugins/jquery.min.js"></script>    
+    <script src="plugins/bootstrap/js/bootstrap.js"></script>
+    <script src="plugins/wait/waitMe.js"></script>
+    <script src="plugins/progress/jquery-asPieProgress.min.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/index.js"></script>
+  </head>
+  <body>
+
+    <div class="content-header">
+      <div class="dropdown">
+          <span class="dropdown-text">Filter</span>
+          <ul class="dropdown-inner">
+              <li class="drop">
+                <span class="dropdown-text">DOT</span>   
+                <ul class="dropdown-menu" id="dot_dropdown">       
+                </ul>
+              </li>
+          </ul>
+      </div>
+    </div>
+
+    <div class="px-2r mt-3r">
+      <div class="row">
+        <div class="col-md-7" id="dot-wrap">
+          <h4>ACCOUNT CONNECTION STATUS</h4>
+          <div class="mt-3r" id="dot-container"></div>
+          
+          <div class="dot-state-types mt-3r active" id="dot-state-types">
+            <div class="dot-state-type-item actived">
+              <div class="dot-state-color"></div>
+              <div class="dot-state-color-desc">Actived</div>
+            </div>
+            <div class="dot-state-type-item expiring">
+              <div class="dot-state-color"></div>
+              <div class="dot-state-color-desc">Expiring</div>
+            </div>
+            <div class="dot-state-type-item lapse">
+              <div class="dot-state-color"></div>
+              <div class="dot-state-color-desc">Data Lapse</div>
+            </div>
+            <div class="dot-state-type-item not-actived">
+              <div class="dot-state-color"></div>
+              <div class="dot-state-color-desc">Not Actived</div>
+            </div>
+            <div class="dot-state-type-item progressing">
+              <div class="dot-state-color"></div>
+              <div class="dot-state-color-desc">Onboarding in Progress</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="account-wrap">
+            <h5 class="text-center">YOUR ACCOUNT IS</h5>
+            <div class="chart-wrap">
+              <div class="account-chart text-center">
+                <div class="row">
+                  <div class="col-md-3"></div>
+                  <div class="col-md-6">
+                    <div class="pie_progress" role="progressbar" data-goal="0">
+                      <div class="pie_progress__number">0%</div>
+                      <div class="pie_progress__label">Completed</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <p class="chart-desc text-center">
+                Finish linking your accounts for a comprehensive view of your Reptile Index.
+              </p>
+            </div>
+            <div class="account-profile mx-1r">
+              <img class="account-avatar-img">
+              <div class="profile-desc">
+                <div class="profile-name"></div>
+                <div class="profile-title"></div>
+                <div class="profile-content mx-1r"></div>
+                <button class="btn btn-profile" id="btn-profile">Contact Your Champion</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay-wrap" id="overlay-wrap"></div>
+    <div class="modal-wrap" id="account-modal">
+      <div class="modal-header">
+        <div class="modal-title">CONTACT YOUR CHAMPION</div>
+        <div class="modal-close"><i class="fa fa-close"></i></div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-content">
+          <div class="contact-block">
+            <img class="contact-img" src="img/email.png" height="46">
+            <p class="mt-1r contact-desc mb-05">Send us a message and read our answer when it's convenient for you.</p>
+            <p class="contact-desc small mb-05">24 hours a day, 7 days a week</p>
+            <a id="contact-email" class="btn btn-blue">Email</a>
+          </div>
+          <div class="contact-block">
+            <img class="contact-img" src="img/phone.png" height="46">
+            <p class="mt-1r contact-desc mb-05">Real-time conversations and immediate answers via text..</p>
+            <p class="contact-desc small mb-05">Monday Friday, 8:00 AM - 5:00 PM PST</p>
+            <p id="contact-phone" class="contact-phone color-blue mt-1r">000-000-0000</p>
+          </div>
+        </div>
+        <div class="modal-content">
+          <div class="contact-block half-width">
+            <img class="contact-img" src="img/bluewire.png" height="46">
+            <p class="mt-1r contact-desc mb-05">Book a Meeting</p>
+            <p class="contact-desc small mb-05">Monday - Friday</p>
+            <a id="meet-link" class="btn btn-blue" href="javascript:;" data-href="">Meeting Link</a>
+          </div><div class="contact-block"></div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
